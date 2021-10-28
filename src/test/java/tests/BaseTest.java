@@ -16,19 +16,20 @@ public class BaseTest {
     ProductsPage productsPage;
     CartPage cartPage;
 
-    @BeforeMethod
+    @BeforeMethod // позволяет запускать метод перед каждым запуском теста
     public void initTest() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        loginPage = new LoginPage(driver);
-        productsPage = new ProductsPage(driver);
-        cartPage = new CartPage(driver);
+        WebDriverManager.chromedriver().setup(); // настройка драйвера
+        driver = new ChromeDriver(); // инициализация драйвера
+        driver.manage().window().maximize(); // настройка что бы окно расширялось на все окно
+       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); // задаем время выполнение работы, для стабильности выполнения тестов
+        loginPage = new LoginPage(driver); //
+        productsPage = new ProductsPage(driver); //
+        cartPage = new CartPage(driver); //
     }
 
-    @AfterMethod
+    @AfterMethod // запускается после каждого метода
     public void closeDriver() {
         driver.quit();
-    }
+    } // в конце теста закрывает браузер
+
 }

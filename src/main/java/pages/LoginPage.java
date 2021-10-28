@@ -12,10 +12,45 @@ public class LoginPage extends BasePage{
     private static final By USERNAME_INPUT = By.xpath("//*[@id='user-name']");
     private static final By PASSWORD_INPUT = By.xpath("//*[@id='password']");
     private static final By LOGIN_BUTTON = By.xpath("//*[@id='login-button']");
+    private static final By BOT_LOGO = By.xpath("//*[@id='bot_column']");
+
 
     public void login(String username, String password) {
+        waitForElementLoketed(USERNAME_INPUT, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
     }
+    public  void wailtForPageOpened() {
+        waitForElementLoketed(BOT_LOGO, 10);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
