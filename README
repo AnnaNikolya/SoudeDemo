@@ -1,0 +1,6 @@
+1. Открываем сайт https://www.saucedemo.com/;
+2. Залогиниться используя логин standard_user, пароль secret_sauce;
+3. Добавить товар в корзину товар Sauce Labs Bolt T-Shirt;
+4. Перейти в корзину https://www.saucedemo.com/cart.html;
+5. Проверить (assertEquals) стоимость товара и его имя в корзине
+
