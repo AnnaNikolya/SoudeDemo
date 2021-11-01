@@ -1,13 +1,16 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    WebDriver driver; // обьявляется обьект вебрайвера
-    WebDriverWait wait = new WebDriverWait(driver, 10);
+    WebDriver driver;
+    WebDriverWait wait;
 
     BasePage(WebDriver driver) {
         this.driver = driver;
@@ -17,11 +20,23 @@ public class BasePage {
         driver.get(url);
     }
 
-    public void waitForElementLoketed(By element, int timeout) {
+    public void waitForElementLocated(By element, int timeout) {
         wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("id")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
+    public void waitForElementLocated(WebElement element, int timeout) {
+        wait = new WebDriverWait(driver, timeout);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForPageLoaded() {
+        new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+            }
+        };
+    }
 }
 
 

@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -16,20 +17,19 @@ public class BaseTest {
     ProductsPage productsPage;
     CartPage cartPage;
 
-    @BeforeMethod // позволяет запускать метод перед каждым запуском теста
+    @BeforeMethod
     public void initTest() {
-        WebDriverManager.chromedriver().setup(); // настройка драйвера
-        driver = new ChromeDriver(); // инициализация драйвера
-        driver.manage().window().maximize(); // настройка что бы окно расширялось на все окно
-       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); // задаем время выполнение работы, для стабильности выполнения тестов
-        loginPage = new LoginPage(driver); //
-        productsPage = new ProductsPage(driver); //
-        cartPage = new CartPage(driver); //
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
     }
 
-    @AfterMethod // запускается после каждого метода
+    @AfterMethod
     public void closeDriver() {
         driver.quit();
-    } // в конце теста закрывает браузер
-
+    }
 }
+
