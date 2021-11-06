@@ -14,10 +14,3 @@ public class CartTests extends BaseTest{
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
 }
-
-
-
-
-
-
-

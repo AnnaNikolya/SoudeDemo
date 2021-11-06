@@ -26,10 +26,8 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
     }
-
     @AfterMethod
     public void closeDriver() {
         driver.quit();
     }
 }
-

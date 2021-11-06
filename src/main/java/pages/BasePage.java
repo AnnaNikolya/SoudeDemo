@@ -15,7 +15,6 @@ public class BasePage {
     BasePage(WebDriver driver) {
         this.driver = driver;
     }
-
     public void openPage(String url) {
         driver.get(url);
     }
@@ -38,14 +37,3 @@ public class BasePage {
         };
     }
 }
-
-
-
-
-
-
-
-
-
-
-
